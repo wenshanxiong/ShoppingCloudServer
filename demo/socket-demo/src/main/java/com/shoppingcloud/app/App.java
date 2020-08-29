@@ -64,10 +64,12 @@ public class App {
      */
     public static void main(String[] args) {
         System.out.println( "Test Socket" );
-        try {
-            startServer();
-        } catch (IOException e) {
-            e.printStackTrace();
+        while (true) {
+            try {
+                startServer();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
     }
 }
