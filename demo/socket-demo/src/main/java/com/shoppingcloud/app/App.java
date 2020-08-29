@@ -43,15 +43,19 @@ public class App {
             OutputStreamWriter serverBroadcast = new OutputStreamWriter(output, charSet);
             PrintWriter broadcast = new PrintWriter(serverBroadcast, true);
 
-            broadcast.println("Dom is big nerd, send 'exit' to terminate");
+            broadcast.println("Will print sent text, send 'exit' to terminate");
 
             // Scanner loop that ends
             while (!clientTerminated &&  textInput.hasNextLine()) {
-                if (textInput.nextLine().toLowerCase().trim().equals("exit")) {
+                String line = textInput.nextLine().toLowerCase().trim();
+                if (line.equals("exit")) {
                     clientTerminated = true;
                     broadcast.println("Terminated");
                 }
             }
+            broadcast.close();
+            textInput.close();
+            socketCnx.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
