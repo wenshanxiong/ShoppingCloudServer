@@ -24,14 +24,13 @@ public class App {
 
         // Constants
         final int port = 6969;
-        final InetAddress serverIP = InetAddress.getByName("18.219.246.53");
         final String charSet = "UTF-8";
         // Variables
         boolean clientTerminated = false;
 
         // Try listening to specified port on local host
         // Multithread capability can be added by extending "Thread"
-        try (ServerSocket server = new ServerSocket(port, 50, serverIP)) {
+        try (ServerSocket server = new ServerSocket(port, 50)) {
             // If valid client, connect
             Socket socketCnx = server.accept();
 
