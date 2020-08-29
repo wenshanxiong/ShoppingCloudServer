@@ -48,6 +48,7 @@ public class App {
             // Scanner loop that ends
             while (!clientTerminated &&  textInput.hasNextLine()) {
                 String line = textInput.nextLine().toLowerCase().trim();
+                broadcast.println(line);
                 if (line.equals("exit")) {
                     clientTerminated = true;
                     broadcast.println("Terminated");
